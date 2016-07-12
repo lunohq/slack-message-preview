@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import classnames from "classnames";
 import _ from "lodash";
 import Remarkable from "remarkable";
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
 
 import styles from "./SlackMessagePreview.scss";
 
@@ -224,4 +225,4 @@ SlackMessagePreview.defaultProps = {
   }
 };
 
-export default SlackMessagePreview;
+export default withStyles(styles)(SlackMessagePreview);

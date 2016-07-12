@@ -47,7 +47,16 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss?browsers=last 2 version!sass?outputStyle=expanded")
+        loaders: [
+          'isomorphic-style-loader',
+          `css-loader?${JSON.stringify({
+            sourceMap: false,
+            modules: true,
+            localIdentName: '[hash:base64:3]',
+            minimize: true,
+          })}`,
+          'postcss-loader?parser=postcss-scss'
+        ]
       },
       {
         test: /\.woff$/,
